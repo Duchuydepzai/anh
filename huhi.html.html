@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizizz - Đề Thi Giữa Kỳ 1 Tiếng Anh 12 (Mã Đề 105)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Nunito', sans-serif; }
+        .quizizz-bg {
+            background-color: #46178f;
+            background-image: radial-gradient(#5a1bb3 2px, transparent 2px);
+            background-size: 32px 32px;
+        }
+        .btn-quizizz {
+            box-shadow: 0 6px 0 0 rgba(0,0,0,0.25);
+        }
+        .btn-quizizz:active {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 0 rgba(0,0,0,0.25);
+        }
+    </style>
+</head>
+<body class="quizizz-bg min-h-screen text-slate-800 flex flex-col justify-between select-none">
+
+    <!-- Top Navigation Header -->
+    <header class="w-full bg-[#391278] border-b-4 border-[#2b0c5d] px-4 md:px-8 py-3.5 flex justify-between items-center text-white sticky top-0 z-40 shadow-lg">
+        <div class="flex items-center space-x-3">
+            <span class="bg-amber-400 text-slate-900 font-extrabold text-sm md:text-base px-3 py-1 rounded-xl shadow border-b-4 border-amber-600 flex items-center space-x-1">
+                <i data-lucide="zap" class="w-4 h-4 fill-current"></i>
+                <span>MÃ 105</span>
+            </span>
+            <h1 class="text-base md:text-xl font-black tracking-wide hidden sm:block">ĐỀ THI GIỮA KỲ 1 TIẾNG ANH 12</h1>
+        </div>
+        
+        <div class="flex items-center space-x-3">
+            <div class="bg-[#5a1bb3] border-2 border-purple-400/30 text-amber-300 font-extrabold px-3.5 py-1.5 rounded-2xl shadow flex items-center space-x-2 text-sm md:text-base">
+                <i data-lucide="trophy" class="w-5 h-5 text-amber-400"></i>
+                <span id="score-text">0 / 40 câu</span>
+            </div>
+            
+            <button onclick="openAdminModal()" class="bg-rose-500 hover:bg-rose-600 text-white font-extrabold text-xs md:text-sm px-3.5 py-2 rounded-2xl border-b-4 border-rose-700 transition active:translate-y-0.5 flex items-center space-x-1.5">
+                <i data-lucide="key" class="w-4 h-4"></i>
+                <span>Admin Key</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-4 py-6 max-w-4xl flex-grow flex items-center justify-center">
+
+        <!-- Welcome / Start Screen -->
+        <div id="start-screen" class="bg-white rounded-3xl shadow-2xl p-6 md:p-10 w-full text-center border-b-8 border-purple-200">
+            <!-- Center QR Code Image -->
+            <div class="flex justify-center mb-6">
+                <div class="bg-white p-3 rounded-3xl border-4 border-purple-300 shadow-xl max-w-[260px]">
+                    <img src="https://lh3.googleusercontent.com/d/1X5l_kRjM0YJ6X2m6t8q-P30r7o0yZq7w=w500" 
+                         alt="QR VietinBank DINH QUANG DUC HUY" 
+                         class="w-full h-auto rounded-2xl"
+                         onerror="this.src='https://placehold.co/300x400/46178f/ffffff?text=DINH+QUANG+DUC+HUY%0A11342444%0AVietinBank'" />
+                </div>
+            </div>
+
+            <h2 class="text-2xl md:text-4xl font-black text-slate-900 mb-2">THI TRỰC TUYẾN - TIẾNG ANH 12</h2>
+            <p class="text-slate-600 mb-6 max-w-xl mx-auto font-semibold text-sm md:text-base">
+                Đề thi Giữa kỳ 1 - Mã đề 105 (Global Success 40 câu)<br/>
+                <span class="text-purple-700 font-extrabold">10 câu đầu cố định</span> • <span class="text-purple-700 font-extrabold">Các câu sau lộn xộn</span> • <span class="text-purple-700 font-extrabold">Đoạn văn Reading 5 câu/lần</span>
+            </p>
+
+            <div class="bg-amber-50 border-2 border-amber-300 rounded-2xl p-4 mb-8 text-left text-xs md:text-sm text-amber-900 space-y-1.5">
+                <p class="font-extrabold flex items-center space-x-1.5 text-amber-700">
+                    <i data-lucide="alert-circle" class="w-4 h-4"></i>
+                    <span>Quy tắc bài thi:</span>
+                </p>
+                <p>• Bạn phải <b>chọn chính xác đáp án đúng</b> mới có thể bấm chuyển sang câu tiếp theo.</p>
+                <p>• Các câu hỏi sắp xếp thoại/đoạn văn được <b>tách dòng riêng từng ý a, b, c, d...</b> dễ nhìn.</p>
+                <p>• Bấm <b>Admin Key</b> (mật khẩu: <code>Duchuy123@</code>) để xem trọn vẹn toàn bộ 40 đề & đáp án tô đậm.</p>
+            </div>
+
+            <button onclick="startQuiz()" class="w-full sm:w-auto bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xl px-10 py-4 rounded-2xl border-b-4 border-emerald-700 btn-quizizz transition flex items-center justify-center space-x-3 mx-auto">
+                <i data-lucide="play" class="w-7 h-7 fill-current"></i>
+                <span>BẮT ĐẦU LÀM BÀI</span>
+            </button>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div id="quiz-screen" class="hidden w-full">
+            <!-- Progress Bar -->
+            <div class="w-full bg-[#391278] rounded-full h-4 mb-5 p-1 border border-purple-400/30 shadow-inner">
+                <div id="progress-bar" class="bg-amber-400 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+            </div>
+
+            <!-- Dynamic Question Container -->
+            <div id="question-container" class="bg-white rounded-3xl shadow-2xl p-5 md:p-8 border-b-8 border-purple-200">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div id="result-screen" class="hidden bg-white rounded-3xl shadow-2xl p-8 md:p-12 w-full text-center border-b-8 border-purple-200">
+            <div class="w-24 h-24 bg-amber-100 text-amber-500 rounded-full mx-auto flex items-center justify-center mb-4 border-b-4 border-amber-300">
+                <i data-lucide="award" class="w-14 h-14"></i>
+            </div>
+            <h2 class="text-3xl font-black text-slate-900 mb-2">HOÀN THÀNH BÀI THI!</h2>
+            <p class="text-slate-600 font-bold mb-6">Bạn đã hoàn tất xuất sắc toàn bộ 40 câu hỏi của Mã đề 105.</p>
+            <div class="text-5xl font-black text-purple-700 mb-8" id="final-score">40 / 40</div>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button onclick="restartQuiz()" class="bg-purple-600 hover:bg-purple-700 text-white font-black px-8 py-3.5 rounded-2xl border-b-4 border-purple-800 transition flex items-center justify-center space-x-2">
+                    <i data-lucide="rotate-ccw" class="w-5 h-5"></i>
+                    <span>Thi Lại Tự Luyện</span>
+                </button>
+                <button onclick="openAdminModal()" class="bg-slate-800 hover:bg-slate-900 text-white font-black px-8 py-3.5 rounded-2xl border-b-4 border-slate-950 transition flex items-center justify-center space-x-2">
+                    <i data-lucide="key" class="w-5 h-5 text-amber-400"></i>
+                    <span>Xem Đáp Án Admin</span>
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Admin Password Modal -->
+    <div id="admin-modal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-md w-full p-6 md:p-8 relative border-b-8 border-purple-200 animate-in fade-in zoom-in duration-200">
+            <button onclick="closeAdminModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <div class="flex items-center space-x-3 mb-5">
+                <div class="p-3 bg-purple-100 text-purple-700 rounded-2xl border-b-2 border-purple-300">
+                    <i data-lucide="shield-lock" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-black text-slate-900">Xác Nhận Admin</h3>
+                    <p class="text-xs text-slate-500 font-semibold">Xem toàn bộ đề & đáp án 40 câu</p>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-black text-slate-700 mb-1">MẬT KHẨU ADMIN</label>
+                    <input type="password" id="admin-password-input" placeholder="Nhập mật khẩu..." class="w-full px-4 py-3 rounded-2xl border-2 border-slate-300 focus:outline-none focus:border-purple-600 font-bold text-sm">
+                    <p id="admin-error" class="text-rose-600 text-xs font-bold mt-1.5 hidden flex items-center space-x-1">
+                        <i data-lucide="x-circle" class="w-3.5 h-3.5"></i>
+                        <span>Mật khẩu không chính xác!</span>
+                    </p>
+                </div>
+                <button onclick="verifyAdminPassword()" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-black py-3.5 rounded-2xl border-b-4 border-purple-800 transition">
+                    XÁC NHẬN
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Full Answer Key Modal (Includes Full Questions & Bolded Answers) -->
+    <div id="admin-key-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md hidden z-50 flex items-center justify-center p-3 md:p-6">
+        <div class="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[92vh] flex flex-col p-5 md:p-8 relative border-b-8 border-purple-200">
+            <div class="flex justify-between items-center pb-4 border-b-2 border-slate-200 mb-4">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="file-check-2" class="w-7 h-7 text-emerald-600"></i>
+                    <div>
+                        <h3 class="text-lg md:text-xl font-black text-slate-900">TOÀN BỘ ĐỀ BÀI & ĐÁP ÁN (40 CÂU)</h3>
+                        <p class="text-xs text-slate-500 font-bold">Mã đề 105 - Đáp án đúng được tô đậm nổi bật</p>
+                    </div>
+                </div>
+                <button onclick="closeAdminKeyModal()" class="text-slate-400 hover:text-slate-600 p-1">
+                    <i data-lucide="x" class="w-7 h-7"></i>
+                </button>
+            </div>
+
+            <div id="admin-key-content" class="overflow-y-auto space-y-6 pr-2 flex-grow text-sm">
+                <!-- Dynamically generated 40 answers with full questions -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w-full py-3 text-center text-white/60 text-xs font-bold">
+        Quizizz Tiếng Anh 12 - Mã Đề 105 • Hệ thống ôn thi trực tuyến
+    </footer>
+
+    <!-- JavaScript Data and Application Logic -->
+    <script>
+        // Full dataset of 40 questions parsed directly from exam code 105
+        const rawQuestions = [
+            // Q1 - Q10 (Fixed positions 1-10)
+            {
+                id: 1,
+                section: "I. LISTENING - Part 1",
+                questionTitle: "Question 1. What difficulty did Disney face before he moved to Hollywood?",
+                options: [
+                    { key: "A", text: "A. He could not find a school.", isCorrect: false },
+                    { key: "B", text: "B. His first film business was unsuccessful.", isCorrect: true },
+                    { key: "C", text: "C. His films were too expensive for children.", isCorrect: false },
+                    { key: "D", text: "D. He had never drawn a cartoon.", isCorrect: false }
+                ],
+                explanation: "Công ty sản xuất phim hoạt hình đầu tiên của ông ở Kansas bị phá sản."
+            },
+            {
+                id: 2,
+                section: "I. LISTENING - Part 1",
+                questionTitle: "Question 2. What personal experience inspired the character Mickey Mouse?",
+                options: [
+                    { key: "A", text: "A. His visit to Disneyland.", isCorrect: false },
+                    { key: "B", text: "B. A childhood book about animals.", isCorrect: false },
+                    { key: "C", text: "C. A pet mouse he once owned.", isCorrect: true },
+                    { key: "D", text: "D. A film made by his brother.", isCorrect: false }
+                ],
+                explanation: "Truyền cảm hứng từ chú chuột cưng mà ông từng nuôi ở xưởng phim cũ."
+            },
+            {
+                id: 3,
+                section: "I. LISTENING - Part 1",
+                questionTitle: "Question 3. Which contribution did Disney make to Mickey Mouse in addition to creating the character?",
+                options: [
+                    { key: "A", text: "A. He gave the character his own voice.", isCorrect: true },
+                    { key: "B", text: "B. He built a cinema for the mouse.", isCorrect: false },
+                    { key: "C", text: "C. He designed a theme park in Ireland.", isCorrect: false },
+                    { key: "D", text: "D. He wrote a novel about the mouse.", isCorrect: false }
+                ],
+                explanation: "Disney trực tiếp lồng tiếng cho Mickey trong những năm đầu."
+            },
+            {
+                id: 4,
+                section: "I. LISTENING - Part 1",
+                questionTitle: "Question 4. What did Disney do after the success of Mickey Mouse?",
+                options: [
+                    { key: "A", text: "A. He stopped working in animation.", isCorrect: false },
+                    { key: "B", text: "B. He returned to his unsuccessful company.", isCorrect: false },
+                    { key: "C", text: "C. He gave up film-making to teach.", isCorrect: false },
+                    { key: "D", text: "D. He made a feature-length animated film.", isCorrect: true }
+                ],
+                explanation: "Ông sản xuất phim hoạt hình dài đầu tiên (Snow White and the Seven Dwarfs)."
+            },
+            {
+                id: 5,
+                section: "I. LISTENING - Part 1",
+                questionTitle: "Question 5. What message does the speaker suggest through Disney's lasting influence?",
+                options: [
+                    { key: "A", text: "A. Success always comes quickly.", isCorrect: false },
+                    { key: "B", text: "B. Only children benefit from films.", isCorrect: false },
+                    { key: "C", text: "C. Creative work can inspire people long after its creator dies.", isCorrect: true },
+                    { key: "D", text: "D. Awards are more important than stories.", isCorrect: false }
+                ],
+                explanation: "Tác phẩm sáng tạo tiếp tục truyền cảm hứng lâu dài kể cả khi tác giả đã mất."
+            },
+            {
+                id: 6,
+                section: "I. LISTENING - Part 2",
+                questionTitle: "Question 6. Minh is interested in learning about the historical background of Halloween.",
+                options: [
+                    { key: "A", text: "A. True", isCorrect: true },
+                    { key: "B", text: "B. False", isCorrect: false }
+                ],
+                explanation: "Minh muốn tìm hiểu nguồn gốc lịch sử Halloween."
+            },
+            {
+                id: 7,
+                section: "I. LISTENING - Part 2",
+                questionTitle: "Question 7. According to Minh, the ancient Irish festival marked the end of the Celtic new year.",
+                options: [
+                    { key: "A", text: "A. True", isCorrect: false },
+                    { key: "B", text: "B. False", isCorrect: true }
+                ],
+                explanation: "Lễ hội đánh dấu BẮT ĐẦU năm mới người Celtic (1/11), không phải kết thúc."
+            },
+            {
+                id: 8,
+                section: "I. LISTENING - Part 2",
+                questionTitle: "Question 8. Mai's criticism of celebrating Halloween partly concerns whether other countries celebrate Vietnamese festivals.",
+                options: [
+                    { key: "A", text: "A. True", isCorrect: true },
+                    { key: "B", text: "B. False", isCorrect: false }
+                ],
+                explanation: "Mai thắc mắc liệu các nước khác có đón lễ hội Việt Nam tương tự không."
+            },
+            {
+                id: 9,
+                section: "I. LISTENING - Part 2",
+                questionTitle: "Question 9. The interviewer says that fewer international festivals are being celebrated in Viet Nam.",
+                options: [
+                    { key: "A", text: "A. True", isCorrect: false },
+                    { key: "B", text: "B. False", isCorrect: true }
+                ],
+                explanation: "Người phỏng vấn nói ngày càng NHIỀU lễ hội quốc tế được đón nhận tại VN."
+            },
+            {
+                id: 10,
+                section: "I. LISTENING - Part 2",
+                questionTitle: "Question 10. Mai thinks Vietnamese festivals can remain attractive despite the presence of foreign celebrations.",
+                options: [
+                    { key: "A", text: "A. True", isCorrect: true },
+                    { key: "B", text: "B. False", isCorrect: false }
+                ],
+                explanation: "Mai tin lễ hội VN vẫn hấp dẫn nếu giữ được nét đẹp truyền thống."
+            },
+
+            // Q11 - Q20 (Language)
+            {
+                id: 11,
+                section: "II. LANGUAGE",
+                questionTitle: "Question 11. The young scientist was praised for her remarkable _______ in medical research.",
+                options: [
+                    { key: "A", text: "A. achieve", isCorrect: false },
+                    { key: "B", text: "B. achievement", isCorrect: true },
+                    { key: "C", text: "C. achieving", isCorrect: false },
+                    { key: "D", text: "D. achieved", isCorrect: false }
+                ],
+                explanation: "Sau Adj (remarkable) cần danh từ -> achievement (thành tựu)."
+            },
+            {
+                id: 12,
+                section: "II. LANGUAGE",
+                questionTitle: "Question 12. Living abroad can encourage students to become more _______ aware.",
+                options: [
+                    { key: "A", text: "A. culture", isCorrect: false },
+                    { key: "B", text: "B. culturally", isCorrect: true },
+                    { key: "C", text: "C. cultural", isCorrect: false },
+                    { key: "D", text: "D. cultures", isCorrect: false }
+                ],
+                explanation: "Trạng từ (culturally) đứng trước bổ nghĩa cho Adj (aware)."
+            },
+            {
+                id: 13,
+                section: "II. LANGUAGE",
+                questionTitle: "Question 13. My uncle _______ in a small village before he became a well-known writer.",
+                options: [
+                    { key: "A", text: "A. grew up", isCorrect: true },
+                    { key: "B", text: "B. was growing up", isCorrect: false },
+                    { key: "C", text: "C. has grown up", isCorrect: false },
+                    { key: "D", text: "D. grows up", isCorrect: false }
+                ],
+                explanation: "Hành động hoàn thành trong quá khứ -> Quá khứ đơn (grew up)."
+            },
+            {
+                id: 14,
+                section: "II. LANGUAGE",
+                questionTitle: "Question 14. At 9 p.m. yesterday, the students _______ a documentary about a national hero.",
+                options: [
+                    { key: "A", text: "A. watch", isCorrect: false },
+                    { key: "B", text: "B. were watching", isCorrect: true },
+                    { key: "C", text: "C. have watched", isCorrect: false },
+                    { key: "D", text: "D. will watch", isCorrect: false }
+                ],
+                explanation: "Thời điểm cụ thể trong quá khứ (9 p.m. yesterday) -> Quá khứ tiếp diễn (were watching)."
+            },
+            {
+                id: 15,
+                section: "II. LANGUAGE",
+                questionTitle: "Question 15. My neighbour is _______ honest man who volunteers at the local library.",
+                options: [
+                    { key: "A", text: "A. a", isCorrect: false },
+                    { key: "B", text: "B. the", isCorrect: false },
+                    { key: "C", text: "C. an", isCorrect: true },
+                    { key: "D", text: "D. no article", isCorrect: false }
+                ],
+                explanation: "'honest' phát âm bắt đầu bằng nguyên âm /ɒ/ -> Dùng 'an'."
+            },
+            {
+                id: 16,
+                section: "II. LANGUAGE",
+                questionTitle: "Question 16. Students from different backgrounds should show respect _______ one another.",
+                options: [
+                    { key: "A", text: "A. to", isCorrect: false },
+                    { key: "B", text: "B. of", isCorrect: false },
+                    { key: "C", text: "C. for", isCorrect: true },
+                    { key: "D", text: "D. at", isCorrect: false }
+                ],
+                explanation: "Cấu trúc: respect for sb/sth (sự tôn trọng dành cho ai)."
+            },
+            {
+                id: 17,
+                section: "II. LANGUAGE",
+                questionTitle: "Question 17. Our club decided to _______ reusable bags instead of buying plastic ones.",
+                options: [
+                    { key: "A", text: "A. make use of", isCorrect: true },
+                    { key: "B", text: "B. come down with", isCorrect: false },
+                    { key: "C", text: "C. look forward to", isCorrect: false },
+                    { key: "D", text: "D. run out of", isCorrect: false }
+                ],
+                explanation: "make use of = tận dụng, sử dụng."
+            },
+            {
+                id: 18,
+                section: "II. LANGUAGE",
+                questionTitle: "Question 18. The organisers _______ the problem of food waste at yesterday's meeting.",
+                options: [
+                    { key: "A", text: "A. discussed about", isCorrect: false },
+                    { key: "B", text: "B. discussed", isCorrect: true },
+                    { key: "C", text: "C. discussed on", isCorrect: false },
+                    { key: "D", text: "D. discussed to", isCorrect: false }
+                ],
+                explanation: "discuss là ngoại động từ + tân ngữ trực tiếp (không dùng giới từ đi kèm)."
+            },
+            {
+                id: 19,
+                section: "II. LANGUAGE",
+                questionTitle: "Question 19. The school installed sensor taps, _______ helped reduce unnecessary water use.",
+                options: [
+                    { key: "A", text: "A. that", isCorrect: false },
+                    { key: "B", text: "B. what", isCorrect: false },
+                    { key: "C", text: "C. which", isCorrect: true },
+                    { key: "D", text: "D. who", isCorrect: false }
+                ],
+                explanation: "Mệnh đề quan hệ không xác định, 'which' thay thế cho cả mệnh đề phía trước."
+            },
+            {
+                id: 20,
+                section: "II. LANGUAGE",
+                questionTitle: "Question 20. By exchanging traditional recipes, the students developed a better _______ of cultural diversity.",
+                options: [
+                    { key: "A", text: "A. understanding", isCorrect: true },
+                    { key: "B", text: "B. understand", isCorrect: false },
+                    { key: "C", text: "C. understood", isCorrect: false },
+                    { key: "D", text: "D. understandably", isCorrect: false }
+                ],
+                explanation: "Sau Adj (better) cần danh từ -> understanding (sự thấu hiểu)."
+            },
+
+            // Reading Block 1 (Q21 - Q25)
+            {
+                isReadingBlock: true,
+                id: "reading_1",
+                section: "III. READING - Part 1",
+                passage: `When our school decided to celebrate the lives of local heroes, my class chose to create a digital exhibition. We wanted to show that an important (21) ________ does not always belong to a world-famous person. A teacher, a doctor or a volunteer can also have a lasting influence on a community.
+
+(22) ________ we had little experience with exhibitions, we began by planning the work carefully. Each group selected one person and looked for reliable information. We did not depend (23) ________ a single website. Instead, we checked old photographs, school records and interviews whenever possible.
+
+One group interviewed a nurse (24) ________ had worked in a remote district for nearly thirty years. She explained that her first years were difficult because the medical centre had very little equipment. While she was travelling between villages, she often had to carry supplies herself. Nevertheless, she continued helping families and training younger workers. Her modest attitude impressed everyone who heard her story.
+
+After collecting the materials, we wrote short texts, recorded interviews and added captions to photographs. We also asked our teacher to check facts before publishing anything online. During the opening week, many parents and students visited the exhibition. Some visitors contributed their own memories, which made the project richer.
+
+The experience taught us a (25) ________ lesson: admiring someone is not only about remembering awards. It is also about understanding the effort, care and decisions behind a meaningful life, even when the person has never appeared in the national news.`,
+                questions: [
+                    {
+                        id: 21,
+                        questionTitle: "Question 21. Choose the best option for blank (21):",
+                        options: [
+                            { key: "A", text: "A. accomplished", isCorrect: false },
+                            { key: "B", text: "B. achievement", isCorrect: true },
+                            { key: "C", text: "C. achieve", isCorrect: false },
+                            { key: "D", text: "D. achieving", isCorrect: false }
+                        ],
+                        explanation: "an important achievement (thành tựu quan trọng) -> Cần N sau Adj."
+                    },
+                    {
+                        id: 22,
+                        questionTitle: "Question 22. Choose the best option for blank (22):",
+                        options: [
+                            { key: "A", text: "A. Although", isCorrect: true },
+                            { key: "B", text: "B. Because", isCorrect: false },
+                            { key: "C", text: "C. Unless", isCorrect: false },
+                            { key: "D", text: "D. Therefore", isCorrect: false }
+                        ],
+                        explanation: "Although + CLAUSE (Mặc dù ít kinh nghiệm nhưng vẫn lên kế hoạch cẩn thận)."
+                    },
+                    {
+                        id: 23,
+                        questionTitle: "Question 23. Choose the best option for blank (23):",
+                        options: [
+                            { key: "A", text: "A. of", isCorrect: false },
+                            { key: "B", text: "B. on", isCorrect: true },
+                            { key: "C", text: "C. at", isCorrect: false },
+                            { key: "D", text: "D. in", isCorrect: false }
+                        ],
+                        explanation: "depend on = phụ thuộc vào."
+                    },
+                    {
+                        id: 24,
+                        questionTitle: "Question 24. Choose the best option for blank (24):",
+                        options: [
+                            { key: "A", text: "A. which", isCorrect: false },
+                            { key: "B", text: "B. whose", isCorrect: false },
+                            { key: "C", text: "C. whom", isCorrect: false },
+                            { key: "D", text: "D. who", isCorrect: true }
+                        ],
+                        explanation: "who thay thế cho danh từ chỉ người 'a nurse' làm chủ ngữ."
+                    },
+                    {
+                        id: 25,
+                        questionTitle: "Question 25. Choose the best option for blank (25):",
+                        options: [
+                            { key: "A", text: "A. valuable", isCorrect: true },
+                            { key: "B", text: "B. value", isCorrect: false },
+                            { key: "C", text: "C. valuably", isCorrect: false },
+                            { key: "D", text: "D. valued", isCorrect: false }
+                        ],
+                        explanation: "valuable lesson (bài học quý giá) -> Cần Adj bổ nghĩa cho danh từ."
+                    }
+                ]
+            },
+
+            // Reading Block 2 (Q26 - Q30)
+            {
+                isReadingBlock: true,
+                id: "reading_2",
+                section: "III. READING - Part 2",
+                passage: `Last month, a secondary school organised a multicultural food fair to help students learn about the communities living in their city. The organisers did not want the fair to become simply a place where people bought snacks. Their goal was to encourage conversations about family traditions, migration and the different meanings of food.
+
+Before the event, each class chose a dish and researched its cultural background. Some groups prepared Vietnamese dishes, while others introduced food connected to Korea, India and Italy. Students interviewed family members, compared recipes and designed short information cards. Teachers checked the explanations to make sure they were respectful and accurate.
+
+At the fair, visitors could taste small portions and hear students explain how particular dishes were associated with celebrations or everyday family meals. These stories often led to further questions. A visitor who had never tried Indian food, for example, asked about common ingredients and why certain dishes are prepared for special occasions. Other visitors shared memories of similar meals in their own homes.
+
+Not every student enjoyed every flavour, but the organisers considered that normal. They encouraged visitors to express preferences politely rather than judge an unfamiliar dish as strange. Several students later said they were more willing to try new food because they understood the stories behind it.
+
+The school plans to organise another fair next year. This time, students hope to invite local community members to demonstrate cooking methods and discuss how traditional dishes can change while maintaining their important cultural significance across generations.`,
+                questions: [
+                    {
+                        id: 26,
+                        questionTitle: "Question 26. What is the passage mainly about?",
+                        options: [
+                            { key: "A", text: "A. Why schools should ban international festivals.", isCorrect: false },
+                            { key: "B", text: "B. How a multicultural food fair encouraged cultural exchange.", isCorrect: true },
+                            { key: "C", text: "C. The difficulties of opening a restaurant.", isCorrect: false },
+                            { key: "D", text: "D. Why traditional dishes are disappearing.", isCorrect: false }
+                        ],
+                        explanation: "Ý chính: Hội chợ ẩm thực đa văn hóa thúc đẩy giao lưu văn hóa giữa học sinh."
+                    },
+                    {
+                        id: 27,
+                        questionTitle: "Question 27. What did students do before the fair?",
+                        options: [
+                            { key: "A", text: "A. They interviewed foreign tourists.", isCorrect: false },
+                            { key: "B", text: "B. They chose dishes and researched their cultural backgrounds.", isCorrect: true },
+                            { key: "C", text: "C. They travelled to every country represented.", isCorrect: false },
+                            { key: "D", text: "D. They bought meals from local restaurants.", isCorrect: false }
+                        ],
+                        explanation: "Chi tiết đoạn 2: '...chose a dish and researched its cultural background.'"
+                    },
+                    {
+                        id: 28,
+                        questionTitle: "Question 28. What does 'These stories' in paragraph 3 refer to?",
+                        options: [
+                            { key: "A", text: "A. The explanations of the food's connection to culture and family.", isCorrect: true },
+                            { key: "B", text: "B. The recipes printed by teachers.", isCorrect: false },
+                            { key: "C", text: "C. The school's instructions about ticket sales.", isCorrect: false },
+                            { key: "D", text: "D. The complaints made by visitors.", isCorrect: false }
+                        ],
+                        explanation: "'These stories' thay thế cho phần giải thích mối liên hệ món ăn với văn hóa gia đình."
+                    },
+                    {
+                        id: 29,
+                        questionTitle: "Question 29. Which statement is TRUE according to the passage?",
+                        options: [
+                            { key: "A", text: "A. Only dishes from Viet Nam were served.", isCorrect: false },
+                            { key: "B", text: "B. The event made every visitor agree about food.", isCorrect: false },
+                            { key: "C", text: "C. Some students became more willing to try unfamiliar dishes.", isCorrect: true },
+                            { key: "D", text: "D. Students were asked to stop making traditional dishes.", isCorrect: false }
+                        ],
+                        explanation: "Chi tiết đoạn 4: '...more willing to try new food because they understood the stories behind it.'"
+                    },
+                    {
+                        id: 30,
+                        questionTitle: "Question 30. What can be inferred about the organisers' view of cultural exchange?",
+                        options: [
+                            { key: "A", text: "A. It works only when everyone shares the same traditions.", isCorrect: false },
+                            { key: "B", text: "B. It should replace local cultural practices.", isCorrect: false },
+                            { key: "C", text: "C. It is best achieved through memorising facts.", isCorrect: false },
+                            { key: "D", text: "D. It becomes meaningful when people listen and ask respectful questions.", isCorrect: true }
+                        ],
+                        explanation: "Suy luận: Giao lưu văn hóa có ý nghĩa khi mọi người biết lắng nghe và đặt câu hỏi tôn trọng."
+                    }
+                ]
+            },
+
+            // Q31 - Q32 (Speaking - Ordering Utterances)
+            {
+                id: 31,
+                section: "IV. SPEAKING",
+                questionTitle: "Question 31. Arrange the following utterances into a coherent exchange.",
+                orderingItems: [
+                    "a. Emma: Not yet. I'll listen to him and reassure him that he belongs in our family, whatever he discovers about his past.",
+                    "b. Emma: My adopted brother has been asking about his biological parents since our family-tree project, and I'm worried he feels different from us.",
+                    "c. Jack: Wanting to understand his past doesn't mean he loves your family less. Have you talked to him about how he feels?"
+                ],
+                options: [
+                    { key: "A", text: "A. c - b - a", isCorrect: false },
+                    { key: "B", text: "B. b - c - a", isCorrect: true },
+                    { key: "C", text: "C. b - a - c", isCorrect: false },
+                    { key: "D", text: "D. a - c - b", isCorrect: false }
+                ],
+                explanation: "b (nêu vấn đề) -> c (cho lời khuyên & hỏi lại) -> a (trả lời & hướng giải quyết)."
+            },
+            {
+                id: 32,
+                section: "IV. SPEAKING",
+                questionTitle: "Question 32. Arrange the following utterances into a coherent exchange.",
+                orderingItems: [
+                    "a. Sam: That sounds more balanced. We should suggest it at Friday's student council meeting.",
+                    "b. Lily: Good point. Perhaps we could keep using the tablets we already have and print worksheets only when necessary.",
+                    "c. Lily: We certainly throw away a lot of printed homework. What makes you think switching to tablets could create other environmental problems?",
+                    "d. Sam: Our school wants to replace worksheets with tablets to save paper, but I'm not sure that's greener.",
+                    "e. Sam: Tablets need electricity and eventually become electronic waste. Some students would also need new devices."
+                ],
+                options: [
+                    { key: "A", text: "A. d - c - e - a - b", isCorrect: false },
+                    { key: "B", text: "B. d - c - e - b - a", isCorrect: true },
+                    { key: "C", text: "C. d - b - e - c - a", isCorrect: false },
+                    { key: "D", text: "D. e - c - d - b - a", isCorrect: false }
+                ],
+                explanation: "d (chủ đề) -> c (hỏi lý do) -> e (giải thích) -> b (giải pháp) -> a (đồng ý)."
+            },
+
+            // Q33 - Q36 (Writing Part 1 - Ordering Sentences)
+            {
+                id: 33,
+                section: "V. WRITING - Part 1",
+                questionTitle: "Question 33. Arrange the sentences to make a coherent email.",
+                orderingItems: [
+                    "a. At my first dinner with the family, I walked inside wearing my shoes, and my host mother politely showed me where to leave them.",
+                    "b. Since that evening, I've paid closer attention to local habits while still sharing my own traditions when people ask.",
+                    "c. Living with a host family in Japan has made me think more carefully about how I behave in someone else's home.",
+                    "d. By making these small changes while staying true to my own traditions, I've learned that adapting does not mean losing my identity.",
+                    "e. I felt embarrassed, but she explained that removing shoes is a common custom here, not a criticism of me."
+                ],
+                options: [
+                    { key: "A", text: "A. c - a - e - d - b", isCorrect: false },
+                    { key: "B", text: "B. a - c - e - b - d", isCorrect: false },
+                    { key: "C", text: "C. c - a - e - b - d", isCorrect: true },
+                    { key: "D", text: "D. a - e - c - d - b", isCorrect: false }
+                ],
+                explanation: "c (giới thiệu) -> a (kể sự cố) -> e (mẹ nuôi giải thích) -> b (thay đổi) -> d (bài học rút ra)."
+            },
+            {
+                id: 34,
+                section: "V. WRITING - Part 1",
+                questionTitle: "Question 34. Arrange the sentences to make a coherent paragraph.",
+                orderingItems: [
+                    "a. Although the club could not solve every problem, Daniel learned that his advantages mattered more when he used them to help others.",
+                    "b. His perspective began to change during a weekend visit to a community centre, where he saw children sharing just a few worn-out textbooks.",
+                    "c. With their advice, he organised a reading club and persuaded classmates to volunteer two Saturdays a month.",
+                    "d. After witnessing this shortage, he consulted the centre's teachers, who suggested organising regular reading sessions rather than simply donating money.",
+                    "e. Growing up in a wealthy family, Daniel attended a private school and rarely worried about the cost of books or meals."
+                ],
+                options: [
+                    { key: "A", text: "A. e - b - d - c - a", isCorrect: true },
+                    { key: "B", text: "B. e - b - c - d - a", isCorrect: false },
+                    { key: "C", text: "C. e - d - b - a - c", isCorrect: false },
+                    { key: "D", text: "D. e - d - b - c - a", isCorrect: false }
+                ],
+                explanation: "e (gia cảnh) -> b (chứng kiến thực tế) -> d (hỏi ý kiến) -> c (hành động) -> a (kết luận)."
+            },
+            {
+                id: 35,
+                section: "V. WRITING - Part 1",
+                questionTitle: "Question 35. Arrange the sentences to make a coherent paragraph.",
+                orderingItems: [
+                    "a. These contrasting perspectives helped the team identify details that might otherwise have been overlooked, particularly when selecting images for customers from different cultural backgrounds.",
+                    "b. At a small design company, staff from five countries worked together on a new website for international customers, bringing different ideas about colours, images, and language.",
+                    "c. By the time the project was completed, the team had learned that diverse perspectives could improve their work, provided that everyone communicated clearly and respected different ways of expressing ideas.",
+                    "d. To prevent similar misunderstandings, the manager introduced brief written summaries after meetings and encouraged employees to ask for clarification whenever a comment seemed unclear.",
+                    "e. Despite these benefits, a misunderstanding arose when one colleague described a design as 'interesting' to suggest that it needed revision, while another interpreted the remark as praise."
+                ],
+                options: [
+                    { key: "A", text: "A. b - a - e - c - d", isCorrect: false },
+                    { key: "B", text: "B. b - e - d - a - c", isCorrect: false },
+                    { key: "C", text: "C. b - a - c - e - d", isCorrect: false },
+                    { key: "D", text: "D. b - a - e - d - c", isCorrect: true }
+                ],
+                explanation: "b (bối cảnh) -> a (lợi ích) -> e (hiểu nhầm phát sinh) -> d (giải pháp) -> c (kết luận)."
+            },
+            {
+                id: 36,
+                section: "V. WRITING - Part 1",
+                questionTitle: "Question 36. Arrange the sentences to make a coherent paragraph.",
+                orderingItems: [
+                    "a. At our school's cultural fair, the dance club mixed a popular online routine with traditional bamboo dancing.",
+                    "b. To address this lack of awareness, the club invited local dancers to explain the meaning of those steps and lead workshops during lunch breaks.",
+                    "c. The experience suggested that global influences do not necessarily threaten local traditions; what matters is whether young people learn to value the cultural meanings behind them.",
+                    "d. After these workshops, students began asking relatives about familiar dances and sharing the stories behind them with classmates.",
+                    "e. The performance attracted many students, but teachers noticed that few recognised the traditional steps hidden within the modern movements."
+                ],
+                options: [
+                    { key: "A", text: "A. a - e - d - b - c", isCorrect: false },
+                    { key: "B", text: "B. a - b - e - d - c", isCorrect: false },
+                    { key: "C", text: "C. a - e - b - d - c", isCorrect: true },
+                    { key: "D", text: "D. a - e - b - c - d", isCorrect: false }
+                ],
+                explanation: "a (sự kiện) -> e (thực trạng) -> b (giải pháp workshop) -> d (kết quả) -> c (bài học)."
+            },
+
+            // Q37 - Q40 (Writing Part 2)
+            {
+                id: 37,
+                section: "V. WRITING - Part 2",
+                questionTitle: "Question 37. Choose the sentence closest in meaning to: 'At noon yesterday, the volunteers were still sorting donated clothes when the charity coordinator arrived.'",
+                options: [
+                    { key: "A", text: "A. The volunteers had finished sorting the donated clothes before the coordinator arrived at noon.", isCorrect: false },
+                    { key: "B", text: "B. The coordinator arrived at noon while the volunteers were in the middle of sorting donated clothes.", isCorrect: true },
+                    { key: "C", text: "C. The volunteers did not start sorting donated clothes until after the coordinator arrived.", isCorrect: false },
+                    { key: "D", text: "D. The volunteers were sorting donated clothes because the coordinator had already left.", isCorrect: false }
+                ],
+                explanation: "Diễn đạt lại đúng ý: Người điều phối đến khi các tình nguyện viên đang phân loại dở dang."
+            },
+            {
+                id: 38,
+                section: "V. WRITING - Part 2",
+                questionTitle: "Question 38. Choose the best sentence combination: 'The students organised a cultural exhibition. The exhibition attracted many parents, which surprised the organisers.'",
+                options: [
+                    { key: "A", text: "A. The students organised a cultural exhibition that attracted many parents, that surprised the organisers.", isCorrect: false },
+                    { key: "B", text: "B. The students organised a cultural exhibition, who attracted many parents and surprised the organisers.", isCorrect: false },
+                    { key: "C", text: "C. The students organised a cultural exhibition, which attracted many parents, a response that surprised the organisers.", isCorrect: true },
+                    { key: "D", text: "D. The students organised a cultural exhibition, which the organisers were surprised many parents.", isCorrect: false }
+                ],
+                explanation: "Kết hợp câu chuẩn ngữ pháp bằng mệnh đề quan hệ 'which' và cụm đồng vị 'a response that...'."
+            },
+            {
+                id: 39,
+                section: "V. WRITING - Part 2",
+                questionTitle: "Question 39. Choose the sentence closest in meaning to: 'Despite having little free time, the students took part in the clean-up campaign last Sunday.'",
+                options: [
+                    { key: "A", text: "A. The students participated in the clean-up campaign last Sunday even though they had little free time.", isCorrect: true },
+                    { key: "B", text: "B. The students would have participated in the campaign if they had had more free time.", isCorrect: false },
+                    { key: "C", text: "C. Because the students had little free time, they gave up participating in the campaign.", isCorrect: false },
+                    { key: "D", text: "D. The students took charge of organising the campaign instead of participating in it.", isCorrect: false }
+                ],
+                explanation: "Cấu trúc nhượng bộ: 'Despite + V-ing/N' = 'Even though + S + V'."
+            },
+            {
+                id: 40,
+                section: "V. WRITING - Part 2",
+                questionTitle: "Question 40. Choose the best sentence combination: 'I was reading a biography in the living room. Suddenly, the lights went out, interrupting me.'",
+                options: [
+                    { key: "A", text: "A. No sooner had I finished reading the biography than the lights went out.", isCorrect: false },
+                    { key: "B", text: "B. The lights went out while I read the biography, but I had already finished it.", isCorrect: false },
+                    { key: "C", text: "C. When the lights were going out, I started to read a biography in the living room.", isCorrect: false },
+                    { key: "D", text: "D. I was reading a biography in the living room when the lights suddenly went out and interrupted me.", isCorrect: true }
+                ],
+                explanation: "Phối hợp thì: Hành động đang xảy ra (QK tiếp diễn) thì hành động khác cắt ngang (QK đơn)."
+            }
+        ];
+
+        let activeQuizFlow = [];
+        let currentStepIndex = 0;
+        let answeredQuestionsCount = 0;
+        let isSingleQuestionAnsweredCorrectly = false;
+        let readingState = {};
+
+        function startQuiz() {
+            // Rule 1: Fixed 10 questions at start
+            const fixedFirst10 = rawQuestions.slice(0, 10);
+
+            // Rule 2: Shuffle remaining items
+            const remainingItems = rawQuestions.slice(10);
+            for (let i = remainingItems.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [remainingItems[i], remainingItems[j]] = [remainingItems[j], remainingItems[i]];
+            }
+
+            activeQuizFlow = [...fixedFirst10, ...remainingItems];
+            currentStepIndex = 0;
+            answeredQuestionsCount = 0;
+            readingState = {};
+
+            document.getElementById('start-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+
+            renderStep();
+        }
+
+        function restartQuiz() {
+            startQuiz();
+        }
+
+        function updateProgress() {
+            document.getElementById('score-text').innerText = `${answeredQuestionsCount} / 40 câu`;
+            const percent = (answeredQuestionsCount / 40) * 100;
+            document.getElementById('progress-bar').style.width = `${percent}%`;
+        }
+
+        function renderStep() {
+            updateProgress();
+            if (currentStepIndex >= activeQuizFlow.length) {
+                showResults();
+                return;
+            }
+
+            const currentItem = activeQuizFlow[currentStepIndex];
+            const container = document.getElementById('question-container');
+            isSingleQuestionAnsweredCorrectly = false;
+
+            if (currentItem.isReadingBlock) {
+                // Reading block rendering (5 questions at once)
+                let html = `
+                    <div class="mb-3 flex justify-between items-center">
+                        <span class="bg-purple-100 text-purple-700 font-extrabold px-3 py-1 rounded-full text-xs">${currentItem.section}</span>
+                        <span class="text-xs font-bold text-slate-500">Bài đọc (5 câu hỏi)</span>
+                    </div>
+                    
+                    <div class="bg-slate-50 border-2 border-slate-200 p-4 md:p-5 rounded-2xl mb-6 max-h-72 overflow-y-auto text-sm leading-relaxed text-slate-700 whitespace-pre-line shadow-inner">
+                        ${currentItem.passage}
+                    </div>
+
+                    <div class="space-y-6">
+                `;
+
+                currentItem.questions.forEach((q) => {
+                    html += `
+                        <div class="p-4 bg-slate-50 rounded-2xl border-2 border-slate-200" id="reading-card-${q.id}">
+                            <p class="font-extrabold text-slate-900 mb-3 text-sm md:text-base">${q.questionTitle}</p>
+                            <div class="space-y-2">
+                    `;
+
+                    q.options.forEach((opt, optIdx) => {
+                        html += `
+                            <button onclick="handleReadingChoice(${q.id}, ${optIdx})" 
+                                id="reading-opt-${q.id}-${optIdx}"
+                                class="w-full text-left p-3 rounded-xl border-2 border-slate-200 bg-white hover:bg-purple-50 transition font-bold text-xs md:text-sm flex items-center justify-between">
+                                <span>${opt.text}</span>
+                            </button>
+                        `;
+                    });
+
+                    html += `
+                            </div>
+                            <div id="reading-feedback-${q.id}" class="mt-2.5 hidden p-2.5 rounded-xl text-xs font-bold"></div>
+                        </div>
+                    `;
+                });
+
+                html += `
+                    </div>
+
+                    <div class="mt-8 flex justify-end">
+                        <button onclick="submitReadingBlock()" class="bg-purple-600 hover:bg-purple-700 text-white font-black px-7 py-3.5 rounded-2xl border-b-4 border-purple-800 transition flex items-center space-x-2">
+                            <span>Kiểm tra & Qua phần tiếp theo</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                `;
+
+                container.innerHTML = html;
+            } else {
+                // Single Question Rendering
+                let html = `
+                    <div class="mb-4 flex justify-between items-center">
+                        <span class="bg-purple-100 text-purple-700 font-extrabold px-3 py-1 rounded-full text-xs">${currentItem.section}</span>
+                        <span class="text-xs font-extrabold text-purple-600">Tiến độ làm bài</span>
+                    </div>
+
+                    <h3 class="text-base md:text-lg font-black text-slate-900 mb-4 leading-snug">${currentItem.questionTitle}</h3>
+                `;
+
+                // If Question has ordering items (Q31-Q36), display them in neat separate line cards
+                if (currentItem.orderingItems && currentItem.orderingItems.length > 0) {
+                    html += `<div class="space-y-2 mb-6">`;
+                    currentItem.orderingItems.forEach(itemStr => {
+                        html += `
+                            <div class="p-3 bg-purple-50/60 border border-purple-200 rounded-xl text-xs md:text-sm font-semibold text-slate-800 leading-relaxed">
+                                ${itemStr}
+                            </div>
+                        `;
+                    });
+                    html += `</div>`;
+                }
+
+                html += `<div class="space-y-3 mb-6">`;
+
+                currentItem.options.forEach((opt, idx) => {
+                    html += `
+                        <button onclick="handleSingleChoice(${currentItem.id}, ${idx})" 
+                            id="single-opt-${currentItem.id}-${idx}"
+                            class="w-full text-left p-4 rounded-2xl border-2 border-slate-200 bg-white hover:bg-purple-50 hover:border-purple-300 transition font-bold text-xs md:text-sm shadow-sm flex items-center justify-between">
+                            <span>${opt.text}</span>
+                        </button>
+                    `;
+                });
+
+                html += `
+                    </div>
+
+                    <div id="single-feedback" class="hidden mb-6 p-4 rounded-2xl text-xs md:text-sm font-bold"></div>
+
+                    <div class="flex justify-between items-center pt-2 border-t border-slate-100">
+                        <div class="text-xs text-slate-400 font-bold">Mã đề 105 • Global Success</div>
+                        <button id="next-btn" onclick="nextStep()" disabled class="bg-slate-300 text-slate-500 font-black px-6 py-3 rounded-2xl cursor-not-allowed border-b-4 border-slate-400 transition flex items-center space-x-2">
+                            <span>Câu tiếp theo</span>
+                            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                `;
+
+                container.innerHTML = html;
+            }
+
+            lucide.createIcons();
+        }
+
+        // Must answer correctly before proceeding
+        function handleSingleChoice(qId, choiceIdx) {
+            if (isSingleQuestionAnsweredCorrectly) return;
+
+            const currentItem = activeQuizFlow[currentStepIndex];
+            const chosenOption = currentItem.options[choiceIdx];
+            const feedbackEl = document.getElementById('single-feedback');
+            const nextBtn = document.getElementById('next-btn');
+
+            // Reset styles
+            currentItem.options.forEach((_, idx) => {
+                const btn = document.getElementById(`single-opt-${qId}-${idx}`);
+                btn.className = "w-full text-left p-4 rounded-2xl border-2 border-slate-200 bg-white transition font-bold text-xs md:text-sm shadow-sm opacity-60";
+            });
+
+            const activeBtn = document.getElementById(`single-opt-${qId}-${choiceIdx}`);
+            activeBtn.classList.remove('opacity-60');
+
+            if (chosenOption.isCorrect) {
+                isSingleQuestionAnsweredCorrectly = true;
+                activeBtn.className = "w-full text-left p-4 rounded-2xl border-2 border-emerald-500 bg-emerald-50 text-emerald-900 font-extrabold text-xs md:text-sm shadow-md flex justify-between items-center";
+                
+                feedbackEl.className = "mb-6 p-4 rounded-2xl text-xs md:text-sm font-bold bg-emerald-100 border-2 border-emerald-300 text-emerald-900";
+                feedbackEl.innerHTML = `<strong> ĐÚNG RỒI!</strong> ${currentItem.explanation}`;
+                feedbackEl.classList.remove('hidden');
+
+                answeredQuestionsCount += 1;
+                updateProgress();
+
+                nextBtn.disabled = false;
+                nextBtn.className = "bg-emerald-500 hover:bg-emerald-600 text-white font-black px-6 py-3 rounded-2xl border-b-4 border-emerald-700 transition flex items-center space-x-2 cursor-pointer shadow-lg active:translate-y-0.5";
+            } else {
+                activeBtn.className = "w-full text-left p-4 rounded-2xl border-2 border-rose-500 bg-rose-50 text-rose-900 font-extrabold text-xs md:text-sm shadow-md";
+                
+                feedbackEl.className = "mb-6 p-4 rounded-2xl text-xs md:text-sm font-bold bg-rose-100 border-2 border-rose-300 text-rose-900";
+                feedbackEl.innerHTML = `<strong> CHƯA CHÍNH XÁC!</strong> Bấm chọn lại phương án đúng để qua câu tiếp theo.<br/><span class="text-xs font-normal mt-1 block">Lời giải: ${currentItem.explanation}</span>`;
+                feedbackEl.classList.remove('hidden');
+            }
+        }
+
+        function handleReadingChoice(questionId, choiceIdx) {
+            readingState[questionId] = choiceIdx;
+            const currentItem = activeQuizFlow[currentStepIndex];
+            const q = currentItem.questions.find(x => x.id === questionId);
+
+            q.options.forEach((_, idx) => {
+                const btn = document.getElementById(`reading-opt-${questionId}-${idx}`);
+                if (idx === choiceIdx) {
+                    btn.className = "w-full text-left p-3 rounded-xl border-2 border-purple-600 bg-purple-50 text-purple-900 font-extrabold text-xs md:text-sm flex items-center justify-between";
+                } else {
+                    btn.className = "w-full text-left p-3 rounded-xl border-2 border-slate-200 bg-white font-bold text-xs md:text-sm flex items-center justify-between opacity-80";
+                }
+            });
+        }
+
+        function submitReadingBlock() {
+            const currentItem = activeQuizFlow[currentStepIndex];
+            let allCorrect = true;
+
+            currentItem.questions.forEach(q => {
+                const selectedIdx = readingState[q.id];
+                const feedbackEl = document.getElementById(`reading-feedback-${q.id}`);
+                feedbackEl.classList.remove('hidden');
+
+                if (selectedIdx === undefined) {
+                    allCorrect = false;
+                    feedbackEl.className = "mt-2.5 p-2.5 rounded-xl text-xs font-bold bg-amber-100 border border-amber-300 text-amber-900";
+                    feedbackEl.innerText = "⚠️ Bạn chưa chọn câu trả lời này!";
+                } else {
+                    const opt = q.options[selectedIdx];
+                    if (opt.isCorrect) {
+                        feedbackEl.className = "mt-2.5 p-2.5 rounded-xl text-xs font-bold bg-emerald-100 border border-emerald-300 text-emerald-900";
+                        feedbackEl.innerHTML = ` Correct! ${q.explanation}`;
+                    } else {
+                        allCorrect = false;
+                        feedbackEl.className = "mt-2.5 p-2.5 rounded-xl text-xs font-bold bg-rose-100 border border-rose-300 text-rose-900";
+                        feedbackEl.innerHTML = ` Sai rồi! Lời giải: ${q.explanation}`;
+                    }
+                }
+            });
+
+            if (allCorrect) {
+                answeredQuestionsCount += 5;
+                updateProgress();
+                currentStepIndex++;
+                readingState = {};
+                renderStep();
+            } else {
+                alert("Vui lòng kiểm tra lại! Bạn phải chọn đúng tất cả 5 câu trong bài đọc để được chuyển tiếp.");
+            }
+        }
+
+        function nextStep() {
+            currentStepIndex++;
+            renderStep();
+        }
+
+        function showResults() {
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
+            document.getElementById('final-score').innerText = `40 / 40`;
+        }
+
+        // Admin Modal Controls & Verification (Duchuy123@)
+        function openAdminModal() {
+            document.getElementById('admin-modal').classList.remove('hidden');
+        }
+
+        function closeAdminModal() {
+            document.getElementById('admin-modal').classList.add('hidden');
+            document.getElementById('admin-password-input').value = '';
+            document.getElementById('admin-error').classList.add('hidden');
+        }
+
+        function verifyAdminPassword() {
+            const password = document.getElementById('admin-password-input').value;
+            if (password === "Duchuy123@") {
+                closeAdminModal();
+                openAdminKeyModal();
+            } else {
+                document.getElementById('admin-error').classList.remove('hidden');
+            }
+        }
+
+        // Admin Key View: Complete Exam Questions + Options + Bolded Answers
+        function openAdminKeyModal() {
+            const container = document.getElementById('admin-key-content');
+            let html = '';
+
+            let counter = 1;
+            rawQuestions.forEach(item => {
+                if (item.isReadingBlock) {
+                    html += `
+                        <div class="p-4 bg-purple-50 border-2 border-purple-200 rounded-2xl mb-2">
+                            <span class="text-xs font-extrabold text-purple-700 bg-purple-200 px-2.5 py-1 rounded-lg">${item.section}</span>
+                            <div class="text-xs text-slate-700 mt-3 p-3 bg-white rounded-xl border border-purple-200 whitespace-pre-line max-h-48 overflow-y-auto">${item.passage}</div>
+                        </div>
+                    `;
+
+                    item.questions.forEach(q => {
+                        html += `
+                            <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+                                <h4 class="font-extrabold text-slate-900">Câu ${counter++}: ${q.questionTitle}</h4>
+                                <div class="my-2.5 space-y-1 pl-2">
+                        `;
+                        q.options.forEach(o => {
+                            if (o.isCorrect) {
+                                html += `<div class="text-emerald-700 font-extrabold bg-emerald-100 p-2 rounded-lg border border-emerald-300">➜ ${o.text} (ĐÁP ÁN ĐÚNG)</div>`;
+                            } else {
+                                html += `<div class="text-slate-600 text-xs py-0.5">  ${o.text}</div>`;
+                            }
+                        });
+                        html += `
+                                </div>
+                                <p class="text-slate-700 text-xs font-bold bg-amber-50 p-2 rounded-lg border border-amber-200"> Lời giải: ${q.explanation}</p>
+                            </div>
+                        `;
+                    });
+                } else {
+                    html += `
+                        <div class="p-4 bg-slate-50 border border-slate-200 rounded-2xl">
+                            <span class="text-xs font-extrabold text-purple-700 bg-purple-100 px-2 py-0.5 rounded-md">${item.section}</span>
+                            <h4 class="font-extrabold text-slate-900 mt-1">Câu ${counter++}: ${item.questionTitle}</h4>
+                    `;
+
+                    if (item.orderingItems && item.orderingItems.length > 0) {
+                        html += `<div class="my-2 space-y-1">`;
+                        item.orderingItems.forEach(line => {
+                            html += `<div class="text-xs p-2 bg-white rounded border border-slate-200 text-slate-700 font-medium">${line}</div>`;
+                        });
+                        html += `</div>`;
+                    }
+
+                    html += `<div class="my-2.5 space-y-1 pl-2">`;
+                    item.options.forEach(o => {
+                        if (o.isCorrect) {
+                            html += `<div class="text-emerald-700 font-extrabold bg-emerald-100 p-2 rounded-lg border border-emerald-300">➜ ${o.text} (ĐÁP ÁN ĐÚNG)</div>`;
+                        } else {
+                            html += `<div class="text-slate-600 text-xs py-0.5">  ${o.text}</div>`;
+                        }
+                    });
+                    html += `
+                            </div>
+                            <p class="text-slate-700 text-xs font-bold bg-amber-50 p-2 rounded-lg border border-amber-200"> Lời giải: ${item.explanation}</p>
+                        </div>
+                    `;
+                }
+            });
+
+            container.innerHTML = html;
+            document.getElementById('admin-key-modal').classList.remove('hidden');
+        }
+
+        function closeAdminKeyModal() {
+            document.getElementById('admin-key-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
